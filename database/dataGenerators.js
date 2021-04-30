@@ -93,7 +93,7 @@ const addReviewsInCourseOrder = () => {
   }
 
 };
-// addReviewsInCourseOrder();
+// // addReviewsInCourseOrder();
 
 
 
@@ -111,4 +111,4 @@ const resetRatingsInDb = () => {
     }, interval * i);
   }
 };
-// resetRatingsInDb();
+// // resetRatingsInDb();

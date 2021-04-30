@@ -1,8 +1,16 @@
 import React from 'react';
 
 const Feedback = (props) => {
+  // console.log('Props in Feedback:', props);
   if (props.ratings === undefined) {
     return null;
+  } else if (props.ratings.totalRatings === 0) {
+    return (
+      <div>
+        <h2>Student feedback</h2>
+        <div>This course does not have any ratings yet.</div>
+      </div>
+    );
   } else {
     const getPercentage = (tier) => {
       let percentage = tier / props.ratings.totalRatings * 100;
@@ -13,9 +21,8 @@ const Feedback = (props) => {
     };
     return (
       <div>
-        {/* {console.log('Props in Feedback:', props)} */}
         <h2>Student feedback</h2>
-        <div>{props.ratings.overallRating.toFixed(2)} Course Rating</div> {/* average of all ratings */}
+        <div>{Number.isInteger(props.ratings.overallRating) ? props.ratings.overallRating : props.ratings.overallRating.toFixed(1)} Course Rating</div> {/* average of all ratings */}
         <div>5 stars: {getPercentage(props.ratings.fiveStars)}</div>
         <div>4 stars: {getPercentage(props.ratings.fourStars)}</div>
         <div>3 stars: {getPercentage(props.ratings.threeStars)}</div>
